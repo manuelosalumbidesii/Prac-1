@@ -27,16 +27,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Extract metadata
-  id: meta
-  uses: docker/metadata-action@v5
-  with:
-    images: ${{ env.DOCKER_IMAGE }}
-    tags: |
-      type=ref,event=tag
-      type=raw,value=latest
-
-
-
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.DOCKER_IMAGE }}
+          tags: |
+            type=ref,event=tag
+            type=raw,value=latest
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
