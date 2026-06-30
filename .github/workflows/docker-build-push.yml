@@ -32,8 +32,7 @@ jobs:
         with:
           images: ${{ env.DOCKER_IMAGE }}
           tags: |
-            type=ref,event=branch
-            type=sha,format=short
+             type=raw,value=v1
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
